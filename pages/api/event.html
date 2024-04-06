@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event - FairTget</title>
+    <style>
+        body {
+            background-color: #DDD8D1;
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin */
+        }
+        .header-container {
+            background-color: #BCB3A4;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .event-title {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .event-poster {
+            width: 98%;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            max-height: 400px; /* Limit max height */
+            background-color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #BCB3A4;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        .poster-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .arrow-container {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .arrow {
+            font-size: 36px;
+            color: #BCB3A4;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            padding: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .arrow:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .venue-seating {
+            width: 100%;
+            height: 300px; /* Adjust height as needed */
+            background-color: #ffffff;
+            text-align: center;
+            line-height: 100px; /* Center vertically */
+            margin: 20px 0;
+        }
+
+        .connect-wallet-btn,
+        .purchase-btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #BCB3A4; /* Add background color */
+            color: #fff; /* Add text color */
+        }
+
+        .antibot-checkbox {
+            margin-right: 10px;
+        }
+        footer {
+            background-color: #DDD8D1;
+            color: #333;
+            text-align: center;
+            padding: 0; /* Increase padding to make the footer bigger */
+            height: 150px; /* Set a specific height for the footer */
+        }
+
+        /* Styles for different cases */
+        .seating-plan-container {
+            display: none; /* Initially hidden */
+            margin: 20px;
+        }
+
+        .seats-selected,
+        .connect-wallet,
+        .seats-purchased,
+        .resell-btn {
+            display: none; /* Initially hidden */
+            margin: 20px;
+        }
+
+        /* Styles for checkbox and buttons */
+        .antibot-checkbox,
+        .purchase-btn,
+        .connect-wallet-btn,
+        .resell-btn {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .antibot-checkbox {
+            margin-right: 10px;
+        }
+
+        /* Style the seating plan box */
+        .seating-plan-box {
+            width: 98%;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            max-height: 400px; /* Limit max height */
+            background-color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #BCB3A4;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        #myTicketsSection {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+        }
+
+        .ticket {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .ticket-info {
+            flex-grow: 1;
+        }
+
+        .offer-info {
+            margin-left: 20px;
+        }
+
+        .offer-info p {
+            margin-bottom: 5px;
+        }
+
+        .offer-btn {
+            margin-top: 10px;
+            background-color: #BCB3A4;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>FairTget</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mytickets.html">My Tickets</a></li>
+                <li><a href="create_event.html">Create Event</a></li>
+                <li id="more-menu">
+                    <a href="javascript:void(0);" onclick="toggleMenu()">☰</a>
+                    <ul id="more-menu-content">
+                        
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <h2 class="event-title">Event Title</h2>
+        <div class="event-poster">
+            <div class="arrow-container">
+                <div class="arrow" onclick="previousPoster()">&#8249;</div>
+                <div class="arrow" onclick="nextPoster()">&#8250;</div>
+            </div>
+            <img src="path_to_your_poster_image.jpg" alt="Event Poster" class="poster-img">
+        </div>
+
+        <!-- Event information -->
+        <div class="event-info" style="margin-left: 35px;">
+            <h2>Event Title</h2>
+            <p><strong>Location:</strong> Event Location</p>
+            <p><strong>Date & Time:</strong> Event Date & Time</p>
+        </div>
+
+        <div class="venue-seating">
+            <h2>Venue Seating</h2>
+        </div>
+
+        <div>
+            <p style="margin-left: 30px;">Seat(s) Selected:</p>
+            <p style="margin-left: 30px;">Price (USD): 0.00</p>
+        </div>
+
+        <div class="connect-wallet">
+            <button class="connect-wallet-btn" id="connect">Connect Wallet</button>
+            <input type="checkbox" class="antibot-checkbox" id="civicPassCheckbox">
+            <label for="civicPassCheckbox">Civic Pass</label>
+            <button class="purchase-btn">Purchase</button>
+        </div>
+
+        <!-- Case 1: Buy Now from Home Page -->
+        <div id="seatingPlan" style="display: none;">
+            <!-- Seating plan content -->
+            <div class="seating-plan-container">
+                <div class="seating-plan-box"></div>
+            </div>
+            <div class="seats-selected">
+                <h3>Seats Selected</h3>
+                <!-- Display selected seats and price here -->
+            </div>
+        
+            <div class="connect-wallet">
+                <button class="connect-wallet-btn" id="connect">Connect Wallet</button>
+                <input type="checkbox" class="antibot-checkbox">
+                <label for="antibot-checkbox">I'm not a robot</label>
+                <button class="purchase-btn">Purchase</button>
+            </div>
+        </div>
+
+        <!-- Case 2: Resell from My Tickets Page -->
+        <div id="myTicketsSection" style="display: none;">
+            <!-- My Tickets content -->
+        
+            <div class="seats-purchased">
+                <h3>Seats Purchased</h3>
+                <!-- Display purchased seats and price here -->
+            </div>
+            <input type="checkbox" class="antibot-checkbox">
+            <label for="antibot-checkbox">I'm not a robot</label>
+            <button class="resell-btn">Resell</button>
+        </div>
+
+        <div id="myTicketsSection2" style="display: none;">
+            <h2>My Ticket(s)</h2>
+            <div class="ticket">
+                <!-- Rectangle box representing the ticket -->
+                <div class="ticket-info" style="width: 150px; height: 100px; background-color: #DDD8D1; border-radius: 5px;"></div>
+                <!-- Offer information -->
+                <div class="offer-info">
+                    <p>Offer Price (USD): $100</p>
+                    <p>Acceptable Token(s): ETH, BTC</p>
+                    <button class="offer-btn">Make Offer</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 FairTget</p>
+        <div>
+            <p>About us:</p>
+            <p>Development Team: 2dudes</p>
+            <p>Twitter: <a href="https://twitter.com/FairTget">https://twitter.com/FairTget</a></p>
+        </div>
+    </footer>
+
+    <script src="connectwallet"></script>
+    <script>
+        // JavaScript functions for toggling visibility
+        function toggleVisibility(elementId) {
+            const element = document.getElementById(elementId);
+            if (element.style.display === 'none') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+
+        const buyNowBtn = document.getElementById('buyNowBtn');
+        buyNowBtn.addEventListener('click', () => {
+            toggleVisibility('seatingPlan');
+        });
+
+        // Code to call toggleVisibility when needed
+        const resellBtn = document.getElementById('resellBtn');
+        resellBtn.addEventListener('click', () => {
+            toggleVisibility('seatingPlan');
+        });
+
+        // Code to call toggleVisibility when needed
+        const makeOfferBtn = document.getElementById('makeOfferBtn');
+        makeOfferBtn.addEventListener('click', () => {
+            toggleVisibility('myTicketsSection2');
+        });
+    </script>
+</body>
+</html>

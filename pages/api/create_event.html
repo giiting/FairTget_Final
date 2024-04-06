@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event - FairTget</title>
+    <style>
+        body {
+            background-color: #DDD8D1;
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin */
+        }
+        .header-container {
+            background-color: #BCB3A4;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .create-event-title {
+            text-align: left;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .event-rectangles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+            padding: 10px;
+            background-color: #FFF;
+            border-radius: 5px;
+        }
+        .rectangle {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 0px;
+        }
+        .rectangle:nth-child(even) {
+            background-color: #DDD8D1 !important; /* Add !important to ensure the color is applied */
+        }
+        .rectangle:nth-child(odd) {
+            background-color: #fff !important; /* Add !important to ensure the color is applied */
+        }
+        .upload-container {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .upload-btn,
+        .publish-btn{
+            margin-left: 10px; /* Adjust margin for buttons */
+            padding: 8px 16px;
+            background-color: #BCB3A4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Add transition for hover effect */
+        }
+        .center-button { /* to center the publish button in the last rectangle */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mint-btn {
+            padding: 8px 16px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Add transition for hover effect */
+        }
+        /* Add hover effect for the Mint button */
+        .upload-btn:hover,
+        .publish-btn:hover{
+            background-color: #A89C8E; /* Change background color on hover */
+        }
+        .mint-btn:hover{
+            background-color: #ccc2b4;
+        }
+        footer {
+            background-color: #DDD8D1;
+            color: #333;
+            text-align: center;
+            padding: 0; /* Increase padding to make the footer bigger */
+            height: 220px; /* Set a specific height for the footer */
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>FairTget</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mytickets.html">My Tickets</a></li>
+                <li><a href="create_event.html">Create Event</a></li>
+                <li id="more-menu">
+                    <a href="javascript:void(0);" onclick="toggleMenu()">☰</a>
+                    <ul id="more-menu-content">
+                        
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <h2 class="create-event-title">Create Event</h2>
+        <div class="event-rectangles">
+            <div class="rectangle">
+                <div class="upload-container">
+                    <p style="margin-right: 10px;">Event Poster(s): </p>
+                    <button class="upload-btn">Upload</button>
+                    <p style="margin-left: 10px;">(Maximum 10 images)</p>
+                </div>
+            </div>
+
+            <div class="rectangle" style="display: flex; align-items: center;">
+                <p style="margin-left: 10px; margin-right: 10px;">Event Title:</p>
+                <input type="text" class="event-title-input" style="width: 90%; height: 30px;" placeholder="Enter event title...">
+            </div>
+
+            <div class="rectangle" style="display: flex; align-items: center;">
+                <p style="margin-left: 10px; margin-right: 10px;">Event Date:</p>
+                <input type="date" class="event-date-input" style="width: 20%;">
+                <p style="margin-left: 10px; margin-right: 10px;">to</p>
+                <input type="date" class="event-date-input" style="width: 20%;">
+            </div>
+
+            <div class="rectangle" style="display: flex; align-items: center;">
+                <p style="margin-left: 10px; margin-right: 10px;">Time:</p>
+                <input type="time" class="event-time-input" style="width: 20%;">
+                <p style="margin-left: 10px; margin-right: 10px;">to</p>
+                <input type="time" class="event-time-input" style="width: 20%;">
+            </div>
+
+            <div class="rectangle" style="display: flex; align-items: center;">
+                <p style="margin-left: 10px; margin-right: 10px;">Description:</p>
+                <textarea class="event-description-input" style="width: 90%; height: 60px;" placeholder="Enter event description..."></textarea>
+            </div>
+
+            <div class="rectangle" style="display: flex; align-items: center;">
+                <p style="margin-left: 10px; margin-right: 10px;">Category:</p>
+                <select class="event-category-select" style="width: 20%;">
+                    <option value="1">Rock</option>
+                    <option value="2">Pop</option>
+                    <option value="3">Jazz</option>
+                    <option value="4">Hip Hop</option>
+                    <option value="5">Electronic</option>
+                </select>
+            </div>
+
+            <div class="rectangle" style="display: flex; align-items: center;">
+                <p style="margin-left: 10px; margin-right: 10px;">Location:</p>
+                <input type="text" class="event-location-input" style="width: 90%;" placeholder="Enter event location...">
+            </div>
+
+            <div class="rectangle" style="display: flex; align-items: center;">
+                <p style="margin-left: 10px; margin-right: 10px;">Price Range (USD):</p>
+                <input type="text" id="min-price-input" style="width: 20%;" placeholder="Min Price" oninput="limitDecimalPlaces(this);">
+                <span style="margin: 0 10px;">-</span>
+                <input type="text" id="max-price-input" style="width: 20%;" placeholder="Max Price" oninput="limitDecimalPlaces(this);">
+            </div>
+            
+            <div class="rectangle" style="display: flex; align-items: center;">
+                <p style="margin-left: 10px; margin-right: 10px;">Event Terms & Conditions:</p>
+                <textarea id="terms-textarea" style="width: 83%; height: 70px;" placeholder="Enter event terms and conditions..."></textarea>
+            </div>
+
+            <div class="rectangle" style="display: flex; align-items: center;">
+                <p style="margin-left: 10px; margin-right: 10px;">Ticket NFT:</p>
+                <button class="mint-btn">Mint</button>
+                <img src="@defaultimage/defaultnft.jpg" id="nftticket">
+                <label for="input-file"></label>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="uploadsFile">
+            </div>
+
+            <div class="rectangle center-button">
+                <button class="publish-btn">Publish</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 FairTget</p>
+        <div>
+            <p>About us:</p>
+            <p>Development Team: 2dudes</p>
+            <p>Twitter: <a href="https://twitter.com/FairTget">https://twitter.com/FairTget</a></p>
+        </div>
+    </footer>
+
+    <script src="menu.js">
+        function limitDecimalPlaces(input) {
+            input.value = input.value.replace(/[^\d.]/, ''); // Remove non-numeric characters except '.'
+            if (input.value.includes('.')) { // Limit decimal places to two
+                let parts = input.value.split('.');
+                if (parts[1].length > 2) {
+                    parts[1] = parts[1].slice(0, 2);
+                    input.value = parts.join('.');
+                }
+            }
+        }
+
+        let nftticket = document.getElementById("nftticket");
+        let uploadNftPic = document.getElementById("uploadsFile");
+
+        uploadFiles.onchange = function () {
+            nftticket.src = URL.createObjectURL(uploadFiles.file[0]);
+        }
+    </script>
+</body>
+</html>

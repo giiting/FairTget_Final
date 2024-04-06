@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tickets - FairTget</title>
+    <style>
+        body {
+            background-color: #DDD8D1;
+            font-family: Arial, sans-serif;
+        }
+        .ticket-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin: 20px;
+            padding: 10px;
+            background-color: #FFF;
+            border-radius: 5px;
+        }
+        .ticket {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #DDD8D1;
+            border-radius: 3px;
+        }
+
+        .event-poster {
+            width: 80px;
+            height: 80px;
+            background-color: #BCB3A4;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        .ticket-info {
+            flex-grow: 1;
+        }
+
+        .status-column {
+            display: flex;
+            align-items: center;
+        }
+
+        .ticket-status {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .resell-btn {
+            padding: 8px 15px; /* Adjust padding for button size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #BCB3A4;
+            color: #000000;
+            font-size: 16px;
+        }
+        .status-btn {
+            margin-top: 5px;
+        }
+        .progress-container {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            background-color: #DDD8D1;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+        }
+        .progress-bar {
+            width: 50%;
+            background-color: #BCB3A4;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .progress-bar-fill {
+            width: 70%; /* Adjust the progress fill width as needed */
+            height: 20px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        header {
+            background-color: #BCB3A4;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        footer {
+            background-color: #DDD8D1;
+            color: #333;
+            text-align: center;
+            padding: 0; /* Increase padding to make the footer bigger */
+            height: 220px; /* Set a specific height for the footer */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FairTget</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mytickets.html">My Tickets</a></li>
+                <li><a href="create_event.html">Create Event</a></li>
+                <li id="more-menu">
+                    <a href="javascript:void(0);" onclick="toggleMenu()">☰</a>
+                    <ul id="more-menu-content">
+                        <!-- Removed other navigation items -->
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2 style="text-align: left; margin-top: 20px; margin-left: 20px;">My NFT Tickets</h2>
+        <div class="ticket-container">
+            <div class="ticket">
+                <div class="event-poster"></div>
+                <div class="ticket-info">
+                    <p>2024 IU H.E.R. World Tour Concert in Kuala Lumpur | Axiata Arena</p>
+                    <p>Ticket ID: eaDAc6aD0lkFj3A</p>
+                </div>
+                <div class="status-column">
+                    <div class="ticket-status">
+                        Ongoing
+                    </div>
+                    <a href="event.html">
+                        <button class="resell-btn status-btn" id="resellBtn">Resell</button>
+                    </a>
+                </div>
+            </div>
+            <div class="ticket">
+                <div class="event-poster"></div>
+                <div class="ticket-info">
+                    <p>2024 IU H.E.R. World Tour Concert in Kuala Lumpur | Axiata Arena</p>
+                    <p>Ticket ID: eaDAc6aD0lkFj3A</p>
+                </div>
+                <div class="status-column">
+                    <div class="ticket-status">
+                        Ongoing
+                    </div>
+                    <a href="event.html">
+                        <button class="resell-btn status-btn" id="resellBtn">Resell</button>
+                    </a>
+                </div>
+            </div>
+            <div class="ticket">
+                <div class="event-poster"></div>
+                <div class="ticket-info">
+                    <p>2023 Coldplay: Music Of The Spheres World Tour | Stadium Bukit Jalil</p>
+                    <p>Ticket ID: iJ5a4rthciDjo9d</p>
+                </div>
+                <div class="status-column">
+                    <div class="ticket-status">
+                        Ended (Collection)
+                    </div>
+                    <a href="event.html">
+                        <button class="resell-btn status-btn" id="makeOfferBtn">Make Offer</button>
+                    </a>
+                </div>
+            </div>
+            <div class="ticket">
+                <div class="event-poster"></div>
+                <div class="ticket-info">
+                    <p>2023 Coldplay: Music Of The Spheres World Tour | Stadium Bukit Jalil</p>
+                    <p>Ticket ID: iJ5a4rthciDjo9d</p>
+                </div>
+                <div class="status-column">
+                    <div class="ticket-status">
+                        Ended (Collection)
+                    </div>
+                    <a href="event.html">
+                        <button class="resell-btn status-btn" id="makeOfferBtn">Make Offer</button>
+                    </a>
+                </div>
+            </div>
+            <div class="ticket">
+                <div class="event-poster"></div>
+                <div class="ticket-info">
+                    <p>2023 Coldplay: Music Of The Spheres World Tour | Stadium Bukit Jalil</p>
+                    <p>Ticket ID: iJ5a4rthciDjo9d</p>
+                </div>
+                <div class="status-column">
+                    <div class="ticket-status">
+                        Ended (Collection)
+                    </div>
+                    <a href="event.html">
+                        <button class="resell-btn status-btn" id="makeOfferBtn">Make Offer</button>
+                    </a>
+                </div>
+            </div>
+            <div class="ticket">
+                <div class="event-poster"></div>
+                <div class="ticket-info">
+                    <p>2023 Coldplay: Music Of The Spheres World Tour | Stadium Bukit Jalil</p>
+                    <p>Ticket ID: iJ5a4rthciDjo9d</p>
+                </div>
+                <div class="status-column">
+                    <div class="ticket-status">
+                        Ended (Collection)
+                    </div>
+                    <a href="event.html">
+                        <button class="resell-btn status-btn" id="makeOfferBtn">Make Offer</button>
+                    </a>
+                </div>
+            </div>
+            <!-- Add more tickets as needed -->
+        </div>
+        <div class="progress-container">
+            <p>Buy and Get More Rewards!!!</p>
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+    </main>
+    <footer style="background-color: #DDD8D1; color: #333; text-align: center; padding: 20px;">
+        <p>&copy; 2024 FairTget</p>
+        <div>
+            <p>About us:</p>
+            <p>Development Team: 2dudes</p>
+            <p>Twitter: <a href="https://twitter.com/FairTget">https://twitter.com/FairTget</a></p>
+        </div>
+    </footer>
+    
+
+    <script>
+        function toggleVisibility(elementId) {
+            const element = document.getElementById(elementId);
+            if (element.style.display === 'none') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        }
+
+        const resellBtn = document.getElementById('resellBtn');
+        resellBtn.addEventListener('click', () => {
+            toggleVisibility('seatingPlan');
+        });
+
+        const makeOfferBtn = document.getElementById('makeOfferBtn');
+        makeOfferBtn.addEventListener('click', () => {
+            toggleVisibility('myTicketsSection');
+        });
+    </script>
+</body>
+</html>

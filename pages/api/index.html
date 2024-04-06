@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FairTget</title>
+    <style>
+        body {
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .header-container {
+            background-color: #BCB3A4;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .event-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .event-box {
+            width: 150px;
+            height: 150px;
+            background-color: #DDD8D1;
+            text-align: center;
+            padding: 10px;
+            position: relative; /* Added */
+        }
+        .event-box img {
+            width: 100px;
+            height: 100px;
+        }
+        .buy-now-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #BCB3A4;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .search-img {
+            margin: 0 auto ;
+            width: 380px;
+            height: 190px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        main {
+            margin-bottom: 50px; /* Add margin to separate the main content from the footer */
+        }
+        footer {
+            background-color: #DDD8D1;
+            color: #333;
+            text-align: center;
+            padding: 20px; /* Increase padding to make the footer bigger */
+            height: 150px; /* Set a specific height for the footer */
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>FairTget</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="mytickets.html">My Tickets</a></li>
+                <li><a href="create_event.html">Create Event</a></li>
+                <li id="more-menu">
+                    <a href="javascript:void(0);" onclick="toggleMenu()">☰</a>
+                    <ul id="more-menu-content">
+                        
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        
+        <div style="position: relative;">
+            <img src="fairtget.jpg" alt="FairTget" style="position: absolute; top: 10px; left: 10px; width: 100px; height: 100px;">
+            <img src="search.png" alt="Search Bar" class="search-img">
+            <img src="bigFairtget.png" alt="Big FairTget" style="display: block; margin: 0 auto; width: 700px; height: 650px;">
+            <h2 style="text-align: center; margin-top: 20px;">Upcoming Events</h2>
+            <div class="event-container">
+                <div class="event-box">
+                    <img src="event1.jpg" alt="Event 1">
+                    <button><a href="event.html">Buynow</a></button> 
+
+                </div>
+                <div class="event-box">
+                    <img src="event2.jpg" alt="Event 2">
+                    <button><a href="event.html">Buynow</a></button>
+                </div>
+                <div class="event-box">
+                    <img src="event3.jpg" alt="Event 3">
+                    <button><a href="event.html">Buynow</a></button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer style="background-color: #DDD8D1; color: #333; text-align: center; padding: 20px;">
+        <p>&copy; 2024 FairTget</p>
+        <div>
+            <p>About us:</p>
+            <p>Development Team: 2dudes</p>
+            <p>Twitter: <a href="https://twitter.com/FairTget">https://twitter.com/FairTget</a></p>
+        </div>
+    </footer>
+    
+
+    <script src="menu.js"></script>
+    <script>
+        const buyNowBtn = document.getElementById('buyNowBtn');
+        buyNowBtn.addEventListener('click', () => {
+            toggleVisibility('seatingPlan');
+        });
+    </script>
+</body>
+</html>

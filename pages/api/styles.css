@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* White background */
+}
+
+header {
+    background-color: #BCB3A4;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0; /* Adjust the top and bottom padding */
+    height: 60px; /* Adjust the height of the header */
+}
+
+h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff; /* White text color for navigation links */
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    padding: 10px 20px;
+    text-align: center;
+}
