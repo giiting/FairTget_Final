@@ -5,6 +5,11 @@ This is a very rough prototype code. To get a clearer picture of the project ple
 also 
 https://app.pitch.com/app/presentation/fe9bf095-417b-4e36-b7ba-1ad15e0c1ca7/c7f3965b-d278-4a9f-a192-14f05721d19a
 
+Overall Steps:
+1. Make a test Wallet
+2. Make a NFT ticket
+3. Use The Web
+
 # Steps to follow:
 
 1. Run the following command:
@@ -40,6 +45,6 @@ yarn app
 ```
 
 
-## Try the app here: [Click Me](https://solanaboilerplate.vercel.app/)
+## Try the app here: [Click Me](@/pages/api/index.html) or run index.html file in folder pages/api
 
 
